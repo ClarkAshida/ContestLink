@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Confirmação de exclusão</h1>
+    <% if(noticia.length>0) { %>
+        <%  noticia.forEach(a1=>{  %>
+            <!-- o '?_method=<nome do método http>' é uma adaptação para o formulário poder receber a edição-->
+            <form method="post" action="/noticias/deletarNoticia/<%= a1.id %>?_method=DELETE"> 
+                <label for="nome">Título:</label>
+                <input disabled="true" type="text" name="titulo" id="titulo" value="<%= a1.titulo %>"><br>
+                <label for="descricao">Descrição:</label>
+                <input disabled="true" type="text" name="descricao" id="descricao" value="<%= a1.descricao %>"><br>
+                <label for="data_nascimento">Data de Publicação:</label>
+                <input disabled="true" type="date" name="data_publicacao" id="data_publicacao" value="<%= a1.data_publicacao %>"><br>
+                <label for="assunto">Assunto:</label>
+                <input disabled="true" type="text" name="assunto" id="assunto" value="<%= a1.assunto %>"><br>
+                <label for="texto_materia">Texto da Matéria:</label>
+                <input disabled="true" type="text" name="texto" id="texto" value="<%= a1.texto_materia %>"><br>
+                <label for="autor">Autor:</label>
+                <input disabled="true" type="autor" name="autor" id="autor" value="<%= a1.autor %>"><br>
+        
+                <input type="submit" value="Apagar" name="excluir"/>
+            </form>
+            <button><a href="/alunos/listAllAlunos">Cancelar</a></button>
+        <% }) %>
+    <% } else { %>
+        <p>Nenhum registro no banco de dados!</p>
+    <% } %>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+ 
+GET http://localhost:3000/noticias/listarNoticias
+
+###
+POST http://localhost:3000/noticias/criarNoticia
+Content-Type: application/json
+
+{
+    "titulo": "Título da Matéria",
+    "autor": "Nome do Autor",
+    "texto": "Conteúdo da Matéria...",
+    "legenda": "Descrição da Matéria",
+    "categoria": "Assunto da Matéria"
+}
+
+###
+PUT http://localhost:3000/noticias/editarNoticia/2
+Content-Type: application/json
+
+{
+    "titulo": "Título da Matéria",
+    "autor": "Nome do Autor",
+    "texto": "Conteúdo da Matéria...",
+    "legenda": "Descrição da Matéria",
+    "categoria": "Assunto da Matéria",
+    "data_e_hora": "2024-01-31 14:00:00"
+}
+
+###
+DELETE http://localhost:3000/noticias/deletarNoticia/18

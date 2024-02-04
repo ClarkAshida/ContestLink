@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Alunos</title>
+</head>
+<body>
+    <header>
+        <h1>Listagem de Notícias</h1>
+      
+        </header>
+    <main>
+        <section>
+            <% if(noticias.length>0) { %>
+                <table border="1"> 
+                    <tr>
+                        <th>Título</th>
+                        <th>Descrição</th>
+                        <th>Data de Publicação</th>
+                        <th>Assunto</th>
+                        <th>Texto</th>
+                        <th>Autor</th>
+                        <th colspan="2">Ações</th>
+                    </tr>
+                  <%  noticias.forEach(a1=>{  %>
+                        <tr>
+                            <td> <%= a1.titulo %> </td>
+                            <td> <%= a1.descricao %> </td>
+                            <td> <%= new Date(a1.data_publicacao).toISOString().split('T')[0] %> </td>
+                            <td> <%= a1.assunto %> </td>
+                            <td> <%= a1.texto_materia %> </td>
+                            <td> <%= a1.autor %> </td>
+                            <td><a href="/noticias/editarNoticia/<%= a1.id %>">Editar</a></td>
+                            <td><a href="/noticias/deletarNoticia/<%= a1.id %>">Remover</a></td>
+                        </tr>
+                    <% }) %>
+            <% } else { %>
+                    <p>Nenhum registro no Banco de Dados!</p>  
+            <% } %>
+        </section>
+    </main>
+</body>
+</html>

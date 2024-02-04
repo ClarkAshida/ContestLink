@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Notícias</title>
+</head>
+<body>
+    <% if(noticia.length>0) { %>
+        <%  noticia.forEach(a1=>{  %>
+    <form method="post" action="/noticias/editarNoticia/<%= a1.id %>?_method=PUT">
+        <label for="nome">Título:</label>
+        <input type="text" name="titulo" id="titulo" value="<%= a1.titulo %>"><br>
+        <label for="descricao">Descrição:</label>
+        <input type="text" name="descricao" id="descricao" value="<%= a1.descricao %>"><br>
+        <label for="data_nascimento">Data de Publicação:</label>
+        <input type="date" name="data_publicacao" id="data_publicacao" value="<%= new Date(a1.data_publicacao).toISOString().split('T')[0] %>"><br>
+        <label for="assunto">Assunto:</label>
+        <input type="text" name="assunto" id="assunto" value="<%= a1.assunto %>"><br>
+        <label for="texto_materia">Texto da Matéria:</label>
+        <input type="text" name="texto" id="texto" value="<%= a1.texto_materia %>"><br>
+        <label for="autor">Autor:</label>
+        <input type="autor" name="autor" id="autor" value="<%= a1.autor %>"><br>
+        
+        <input type="submit" name="Cadastrar" id="cadastrar">
+    </form>
+    <% }) %>
+    <% } else { %>
+        <p>Nenhum registro encontrado!</p>  
+    <% } %>
+    
+</body>
+</html>
